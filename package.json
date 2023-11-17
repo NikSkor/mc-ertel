@@ -1,0 +1,22 @@
+{
+  "name": "mc-ertel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "scss-watch": "sass --no-source-map --watch styles/styles.scss public/css/styles.css",
+    "nodemon-watch": "nodemon app.js -e *",
+    "dev": "npm-run-all --parallel scss-watch nodemon-watch"
+  },
+  "author": "Nikita Skorodumov",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1",
+    "npm-run-all": "^4.1.5",
+    "sass": "^1.69.5"
+  }
+}

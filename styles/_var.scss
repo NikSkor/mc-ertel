@@ -1,0 +1,33 @@
+$mainColor: #000000;
+$fontColor: #323232;
+$lime-green: #66C05D;
+$light-gray: #D9D9D9;
+$dark-gray: #BDBDBD;
+$gray: #828282;
+$white: #FFFFFF;
+// $bg-color: #000;
+
+$laptop: 1024px;
+$tablet: 780px;
+$mobile: 580px;
+
+@mixin laptop {
+  @media (max-width: #{$laptop}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: #{$tablet}) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: #{$mobile}) {
+    @content;
+  }
+}
+
+
+
