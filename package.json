@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "scss-watch": "sass --no-source-map --watch styles/styles.scss public/css/styles.css",
-    "nodemon-watch": "nodemon app.js",
+    "nodemon-watch": "nodemon app.js -e *",
     "dev": "npm-run-all --parallel scss-watch nodemon-watch"
   },
   "author": "Nikita Skorodumov",

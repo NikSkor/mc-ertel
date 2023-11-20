@@ -1,0 +1,38 @@
+.modal {
+
+  &__container {
+    border: 3px solid $light-gray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 55px;
+  }
+
+  &__title {
+    font-weight: 600;
+    font-size: 32px;
+  }
+
+  &__link {
+    background-color: $gray;
+    display: block;
+    text-align: center;
+    padding: 20px 15px;
+    border-radius: 20px;
+    width: 300px;
+    align-self: center;
+    font-weight: 600;
+    border: 1px transparent solid;
+    transition: all 0.4s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $light-gray;
+    }
+
+    &:focus {
+      background-color: $light-gray;
+      border-color: $gray;
+    }
+  }
+}

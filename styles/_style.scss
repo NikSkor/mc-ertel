@@ -113,9 +113,10 @@ main {
   --max-width: 1360px;
   --padding: 40px;
   max-width: calc(var(--max-width) + var(--padding) * 2);
-  padding: 0 var(--padding);
+  padding: 30px var(--padding);
   margin: 0 auto;
   border-radius: 15px;
+
 
   // @include laptop {
   //   --max-width: 974px;

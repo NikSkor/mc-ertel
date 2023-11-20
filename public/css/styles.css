@@ -117,7 +117,7 @@ main {
   --max-width: 1360px;
   --padding: 40px;
   max-width: calc(var(--max-width) + var(--padding) * 2);
-  padding: 0 var(--padding);
+  padding: 30px var(--padding);
   margin: 0 auto;
   border-radius: 15px;
 }
@@ -130,8 +130,6 @@ main {
 
 .header__container {
   background-color: #BDBDBD;
-  padding-top: 25px;
-  padding-bottom: 30px;
   margin-bottom: 30px;
 }
 .header__title {
@@ -141,8 +139,6 @@ main {
 
 .user__container {
   border: 3px solid #BDBDBD;
-  padding-top: 30px;
-  padding-bottom: 30px;
 }
 
 .info {
@@ -205,6 +201,38 @@ main {
   background-color: #BDBDBD;
 }
 .info__btn:focus {
+  background-color: #BDBDBD;
+  border-color: #828282;
+}
+
+.modal__container {
+  border: 3px solid #BDBDBD;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 55px;
+}
+.modal__title {
+  font-weight: 600;
+  font-size: 32px;
+}
+.modal__link {
+  background-color: #828282;
+  display: block;
+  text-align: center;
+  padding: 20px 15px;
+  border-radius: 20px;
+  width: 300px;
+  align-self: center;
+  font-weight: 600;
+  border: 1px transparent solid;
+  transition: all 0.4s ease-in-out;
+  cursor: pointer;
+}
+.modal__link:hover {
+  background-color: #BDBDBD;
+}
+.modal__link:focus {
   background-color: #BDBDBD;
   border-color: #828282;
 }

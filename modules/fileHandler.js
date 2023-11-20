@@ -21,7 +21,7 @@ exports.fileEditor = (name, data) => {
   dataObj.id = generateRandomId.generateRandomId();
   dataObj.content = {...data};
   dataObj.content.date = formatFate.formatDate(nowDate);
-  dataObj.content.editDate = 'не изменялся';
+  dataObj.content.editDate = 'изменений не было';
   console.log('dataObj: ', dataObj);
   let dataOldObj = {};
 

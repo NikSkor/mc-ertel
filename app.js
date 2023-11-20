@@ -4,8 +4,6 @@ const fileHandler = require('./modules/fileHandler');
 const dataBaseName = 'dataBase';
 // const fs = require('fs');
 
-
-
 const express = require('express');
 const app = express();
 const port = 3030;
@@ -24,10 +22,15 @@ app.post('/user_input', function (req, res, next) {
   // Объект req.body содержит данные из переданной формы
   // console.log(req.body);
   fileHandler.fileEditor(dataBaseName, req.body);
+  res.redirect('/info');
 });
 
 app.get('/', (req, res) => {
   res.render('index');
+});
+
+app.get('/info', (req, res) => {
+  res.render('modalPage');
 });
 
 app.listen(port, () => {

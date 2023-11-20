@@ -1,17 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MC</title>
-  <link rel="stylesheet" href="/css/normalize.css">
-  <link rel="stylesheet" href="/css/styles.css">
+  <%- include('./templates/head'); %>
 </head>
 <body>
   <header class="header">
-    <div class="container header__container">
-      <h1 class="header__title">Приём данных</h1>
-    </div>   
+    <%- include('./templates/header'); %>
   </header>
   <main class="main">
     <section class="user">
@@ -57,6 +51,6 @@
       </div>
     </section>
   </main>
-  <!-- <script src="/script.js"></script> -->
+  <script src="/scripts/main.js"></script>
 </body>
 </html>
