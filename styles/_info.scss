@@ -10,6 +10,7 @@
   }
 
   &__form {
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -69,5 +70,42 @@
       background-color: $light-gray;
       border-color: $gray;
     }
+  }
+
+  // &__modal {
+  //   position: fixed;
+  //   width: 100vw;
+  //   background-color: $white;
+  // }
+
+  &__modal {
+    width: 100%;
+    border: 3px solid $light-gray;
+    font-weight: 600;
+    padding: 30px;
+    background-color: $morelight-gray;
+    border-radius: 15px;
+    position: absolute;
+    transform: scale(0);
+    // left: 50%;
+    top: 40%;
+    // width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    opacity: 0;
+    transition: all .7s ease-in-out;
+    // transform: scale(0);
+
+    &_active {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  &__choice {
+    display: flex;
+    gap: 30px;
   }
 }

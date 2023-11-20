@@ -23,7 +23,15 @@
                 <input class="info__input" type="email" name="mail" id="" placeholder="Введите email">
               </label>
             </div>
-            <input class="info__btn" type="submit" value="Сохранить">
+            <button class="info__btn info__btn_modal">Сохранить</button>
+            <div class="info__modal">
+              <span class="info__question">Вы хотите сохранить данные?</span>
+              <div class="info__choice">
+                <input class="info__btn" type="submit" value="Сохранить">
+                <button class="info__btn info__btn_back">Назад</button>
+              </div>
+            </div>
+            
           </form>
         </div>
         <div class="user__editor editor visually-hidden">
