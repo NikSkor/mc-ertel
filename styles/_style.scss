@@ -13,8 +13,8 @@ body {
   min-width: 320px;
   // min-height: 100vh;
   font-weight: 400;
-  font-size: 25px;
-  color: $fontColor;
+  font-size: 22px;
+  color: $mainColor;
   font-family: 'Inter', sans-serif;
   font-feature-settings: 'pnum' on, 'lnum' on;
   line-height: 1.2;
@@ -79,6 +79,13 @@ iframe {
   border: none;
 }
 
+input[type="text"] {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  margin: 0;
+}
+
 .visually-hidden {
   position: fixed;
   transform: scale(0);
@@ -87,7 +94,7 @@ iframe {
 main {
   display: flex;
   flex-direction: column;
-  gap: 150px;
+  // gap: 150px;
 
   // @include laptop {
   //   gap: 120px;
@@ -108,6 +115,7 @@ main {
   max-width: calc(var(--max-width) + var(--padding) * 2);
   padding: 0 var(--padding);
   margin: 0 auto;
+  border-radius: 15px;
 
   // @include laptop {
   //   --max-width: 974px;

@@ -13,6 +13,50 @@
       <h1 class="header__title">Приём данных</h1>
     </div>   
   </header>
+  <main class="main">
+    <section class="user">
+      <div class="container user__container">
+        <div class="user__info info">
+          <h2 class="info__title">Ввод данных пользователя</h2>
+          <form class="info__form" method="POST" action="/user_input">
+            <div class="info__input-block">
+              <label class="info__label">
+                <span>Имя</span>
+                <input class="info__input" type="text" name="name" id="" placeholder="Введите имя">
+              </label>
+              <label class="info__label">
+                <span>Email</span>
+                <input class="info__input" type="email" name="mail" id="" placeholder="Введите email">
+              </label>
+            </div>
+            <input class="info__btn" type="submit" value="Сохранить">
+          </form>
+        </div>
+        <div class="user__editor editor visually-hidden">
+          <form class="editor__form">
+            <label class="editor__label">
+              <span>Имя</span>
+              <input class="editor__input" type="text" name="" id="" placeholder="Введите имя">
+            </label>
+            <label class="editor__label">
+              <span>Email</span>
+              <input class="editor__input" type="email" name="" id="" placeholder="Введите email">
+            </label>
+            <label class="editor__label">
+              <span>Дата добавления</span>
+              <input class="editor__input" type="text" name="" id="" disabled>
+            </label>
+            <label class="editor__label">
+              <span>Дата изменения</span>
+              <input class="editor__input" type="text" name="" id="" disabled>
+            </label>
+            <button class="editor__btn" type="submit">Сохранить</button>
+          </form>
+        </div>
+        
+      </div>
+    </section>
+  </main>
   <!-- <script src="/script.js"></script> -->
 </body>
 </html>
