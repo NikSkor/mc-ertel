@@ -34,28 +34,6 @@
             
           </form>
         </div>
-        <!-- <div class="user__editor editor visually-hidden">
-          <form class="editor__form">
-            <label class="editor__label">
-              <span>Имя</span>
-              <input class="editor__input" type="text" name="" id="" placeholder="Введите имя">
-            </label>
-            <label class="editor__label">
-              <span>Email</span>
-              <input class="editor__input" type="email" name="" id="" placeholder="Введите email">
-            </label>
-            <label class="editor__label">
-              <span>Дата добавления</span>
-              <input class="editor__input" type="text" name="" id="" disabled>
-            </label>
-            <label class="editor__label">
-              <span>Дата изменения</span>
-              <input class="editor__input" type="text" name="" id="" disabled>
-            </label>
-            <button class="editor__btn" type="submit">Сохранить</button>
-          </form>
-        </div> -->
-        
       </div>
     </section>
     <section class="roster">
@@ -76,10 +54,7 @@
               <td class="roster__text roster__text_mobile"><%= user.content.date %></td>
               <td class="roster__text roster__text_mobile"><%= user.content.editDate %></td>
               <td class="roster__text">
-                <form action="/edit" method="POST" class="roster__form">
-                  <input class="roster__id" type="text" name="userId" value=<%= user.id %>>
-                  <input type="submit" value="Ред." class="roster__edit" data-id=<%= user.id %>>
-                </form>
+                <a href="/user/<%= user.id %>"  class="roster__edit">Ред.</a>
               </td>
             </tr>
           <% }); %>
@@ -88,7 +63,7 @@
     </section>
   </main>
   <footer class="footer">
-    <div class="container footer__container"></div>
+    <%- include('./templates/footer'); %>
   </footer>
   <script src="/scripts/main.js"></script>
 </body>

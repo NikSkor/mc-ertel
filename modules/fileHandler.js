@@ -14,15 +14,14 @@ exports.createDataFile = (name) => {
   });
 };
 
-exports.getDataFile = (name) => {
-  let dataObj = {};
-  fs.readFile(`dataBase/${name}.json`, 'utf8', (err, data) => {
-    dataObj = JSON.parse(data);
+// exports.getDataFile = (name) => {
+//   let dataObj = {};
+//   fs.readFile(`dataBase/${name}.json`, 'utf8', (err, data) => {
+//     dataObj = JSON.parse(data);
+//   });
 
-  });
-
-  return dataObj;
-}
+//   return dataObj;
+// }
 
 exports.editDataFile = (name, data) => {
   this.createDataFile(name);
@@ -31,7 +30,9 @@ exports.editDataFile = (name, data) => {
   dataObj.id = generateRandomId.generateRandomId();
   dataObj.content = {...data};
   dataObj.content.date = formatFate.formatDate(nowDate);
-  dataObj.content.editDate = 'изменений не было';
+  // dataObj.content.date = nowDate;
+
+  dataObj.content.editDate = 'нет';
 
   let dataOldObj = {};
 
@@ -43,4 +44,44 @@ exports.editDataFile = (name, data) => {
 
     fs.writeFile(`dataBase/${name}.json`, JSON.stringify(dataOldObj), () => {});
   });
+}
+
+exports.updateDataFile = (id, name, userData) => {
+  this.createDataFile(name);
+  fs.readFile(`dataBase/${name}.json`, 'utf8', (err, dataOld) => {
+    let dataObj = JSON.parse(dataOld);
+    let nowDate = new Date();
+
+    dataObj.users.forEach((user) => {
+      if(user.id === id) {
+        user.content = {
+          name: userData.name,
+          mail: userData.mail,
+          date: user.content.date,
+          editDate: formatFate.formatDate(nowDate)
+        }
+      }
+    })
+
+    fs.writeFile(`dataBase/${name}.json`, JSON.stringify(dataObj), () => {});
+  });
+}
+
+exports.searchInFile = (id, name) => {
+  let dataObj = {};
+  let resultObj = {};
+  fs.readFile(`dataBase/${name}.json`, 'utf8', (err, data) => {
+    dataObj = JSON.parse(data);
+
+    dataObj.users.forEach(user => {
+      if(user.id === id) {
+        resultObj = {id: user.id, ...user.content}
+      }
+    });
+    
+  });
+
+  console.log('resultObj: ', resultObj);
+
+  return resultObj;
 }

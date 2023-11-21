@@ -11,13 +11,16 @@ html {
 
 body {
   min-width: 320px;
-  // min-height: 100vh;
+  min-height: 100vh;
   font-weight: 400;
   font-size: 22px;
   color: $mainColor;
   font-family: 'Inter', sans-serif;
   font-feature-settings: 'pnum' on, 'lnum' on;
   line-height: 1.2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   // @include laptop {
   //   font-size: 18px;

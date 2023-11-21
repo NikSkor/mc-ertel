@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('./templates/head'); %>
+</head>
+
+<body>
+  <header class="header">
+    <%- include('./templates/header'); %>
+  </header>
+  <main class="main">
+    <section class="user">
+      <div class="container user__container">
+        <div class="user__info info">
+          <h2 class="info__title">Изменение данных пользователя</h2>
+          <form class="info__form" method="POST" action="/userEdit">
+            <div class="info__input-block info__input-block_edit">
+              <div class="info__line">
+                <label class="info__label">
+                  <span>Имя</span>
+                  <input class="info__input" type="text" name="name" id="inputName" placeholder="Введите имя" value=<%= user.name %>>
+                </label>
+                <label class="info__label">
+                  <span>Email</span>
+                  <input class="info__input" type="email" name="mail" id="inputMail" placeholder="Введите email" value=<%= user.mail %>>
+                </label>
+              </div>
+              <div class="info__line">
+                <div class="info__label">
+                  <span>Дата создания</span>
+                  <span class="info__text"><%= user.date %></span>
+                </div>
+                <div class="info__label">
+                  <span>Дата последнего изменения</span>
+                  <span class="info__text"><%= user.editDate %></span>
+                </div>
+              </div>
+            </div>
+            <div class="info__btns-block">
+              <button class="info__btn info__btn_modal">Сохранить</button>
+              <a class="info__btn" href="/">Назад</a>
+            </div>
+            <div class="info__modal">
+              <span class="info__question">Вы хотите сохранить данные?</span>
+              <div class="info__choice">
+                <input class="info__btn" type="submit" value="Сохранить">
+                <button class="info__btn info__btn_back">Назад</button>
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <%- include('./templates/footer'); %>
+  </footer>
+  <script src="/scripts/main.js"></script>
+</body>
+
+</html>

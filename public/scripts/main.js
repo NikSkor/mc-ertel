@@ -58,13 +58,13 @@ if (backBtn !== null) {
   });
 }
   
-if (editBtns !== null) {
-  editBtns.forEach((btn) => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-    });
-  });
-}
+// if (editBtns !== null) {
+//   editBtns.forEach((btn) => {
+//     btn.addEventListener('click', (e) => {
+//       e.preventDefault();
+//     });
+//   });
+// }
   
 
 // fs.readFile(`dataBase/${dataBaseName}.json`, 'utf8', (err, data) => {
