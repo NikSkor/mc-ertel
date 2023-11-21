@@ -16,11 +16,11 @@
             <div class="info__input-block">
               <label class="info__label">
                 <span>Имя</span>
-                <input class="info__input" type="text" name="name" id="" placeholder="Введите имя">
+                <input class="info__input" type="text" name="name" id="inputName" placeholder="Введите имя">
               </label>
               <label class="info__label">
                 <span>Email</span>
-                <input class="info__input" type="email" name="mail" id="" placeholder="Введите email">
+                <input class="info__input" type="email" name="mail" id="inputMail" placeholder="Введите email">
               </label>
             </div>
             <button class="info__btn info__btn_modal">Сохранить</button>
@@ -34,7 +34,7 @@
             
           </form>
         </div>
-        <div class="user__editor editor visually-hidden">
+        <!-- <div class="user__editor editor visually-hidden">
           <form class="editor__form">
             <label class="editor__label">
               <span>Имя</span>
@@ -54,11 +54,42 @@
             </label>
             <button class="editor__btn" type="submit">Сохранить</button>
           </form>
-        </div>
+        </div> -->
         
       </div>
     </section>
+    <section class="roster">
+      <div class="container roster__container">
+        <h2 class="roster__title">Перечень пользователей</h2>
+        <table class="roster__list">
+          <tr class="roster__item">
+              <th class="roster__text"><b>Имя</b></th>
+              <th class="roster__text"><b>Почта</b></th>
+              <th class="roster__text roster__text_mobile"><b>Дата создания</b></th>
+              <th class="roster__text roster__text_mobile"><b>Дата последнего изменения</b></th>
+              <th class="roster__text"><b>Редактирование</b></th>
+            </tr>
+          <% data.users.forEach((user)=> { %>
+            <tr class="roster__item">
+              <td class="roster__text"><%= user.content.name %></td>
+              <td class="roster__text"><%= user.content.mail %></td>
+              <td class="roster__text roster__text_mobile"><%= user.content.date %></td>
+              <td class="roster__text roster__text_mobile"><%= user.content.editDate %></td>
+              <td class="roster__text">
+                <form action="/edit" method="POST" class="roster__form">
+                  <input class="roster__id" type="text" name="userId" value=<%= user.id %>>
+                  <input type="submit" value="Ред." class="roster__edit" data-id=<%= user.id %>>
+                </form>
+              </td>
+            </tr>
+          <% }); %>
+        </table>
+      </div>
+    </section>
   </main>
+  <footer class="footer">
+    <div class="container footer__container"></div>
+  </footer>
   <script src="/scripts/main.js"></script>
 </body>
 </html>

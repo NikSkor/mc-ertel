@@ -94,7 +94,8 @@ input[type="text"] {
 main {
   display: flex;
   flex-direction: column;
-  // gap: 150px;
+  gap: 25px;
+  margin-bottom: 20px;
 
   // @include laptop {
   //   gap: 120px;
@@ -105,7 +106,7 @@ main {
   // }
 
   @include mobile {
-    gap: 50px;
+    gap: 10px;
   }
 }
 

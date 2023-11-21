@@ -1,0 +1,64 @@
+.roster {
+
+  &__container {
+    border: 3px solid $light-gray;
+    display: block;
+  }
+
+  &__title {
+    text-align: center;
+    font-weight: 600;
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+
+  &__list {
+    width: 100%;
+  }
+
+  &__item {
+    height: 60px;
+  }
+
+  &__text {
+    text-align: center;
+
+    // &_mobile {
+    //   display: none;
+    // }
+  }
+
+  &__form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__id {
+    position: absolute;
+    transform: scale(0);
+  }
+
+  &__edit {
+    background-color: $gray;
+    display: inline-block;
+    text-align: center;
+    padding: 15px 10px;
+    border-radius: 20px;
+    width: 100px;
+    align-self: center;
+    font-weight: 600;
+    border: 1px transparent solid;
+    transition: all 0.4s ease-in-out;
+    cursor: pointer;
+  
+    &:hover {
+      background-color: $light-gray;
+    }
+  
+    &:focus {
+      background-color: $light-gray;
+      border-color: $gray;
+    }
+  }
+}

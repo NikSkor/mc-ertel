@@ -3,7 +3,7 @@ const generateRandomId = require('./utils/generateRandomId');
 const formatFate = require('./utils/formatDate');
 
 
-exports.fileCreator = (name) => {
+exports.createDataFile = (name) => {
   fs.access(`dataBase/${name}.json`, (err) => {
     if (err) {
       console.log('Файл данных не найден');
@@ -14,15 +14,25 @@ exports.fileCreator = (name) => {
   });
 };
 
-exports.fileEditor = (name, data) => {
-  this.fileCreator(name);
+exports.getDataFile = (name) => {
+  let dataObj = {};
+  fs.readFile(`dataBase/${name}.json`, 'utf8', (err, data) => {
+    dataObj = JSON.parse(data);
+
+  });
+
+  return dataObj;
+}
+
+exports.editDataFile = (name, data) => {
+  this.createDataFile(name);
   let dataObj = {};
   let nowDate = new Date();
   dataObj.id = generateRandomId.generateRandomId();
   dataObj.content = {...data};
   dataObj.content.date = formatFate.formatDate(nowDate);
   dataObj.content.editDate = 'изменений не было';
-  console.log('dataObj: ', dataObj);
+
   let dataOldObj = {};
 
   fs.readFile(`dataBase/${name}.json`, 'utf8', (err, dataOld) => {
@@ -30,7 +40,7 @@ exports.fileEditor = (name, data) => {
 
     dataOldObj.users.push(dataObj);
 
-    console.log('dataOldObj: ', dataOldObj);
+
     fs.writeFile(`dataBase/${name}.json`, JSON.stringify(dataOldObj), () => {});
   });
 }
