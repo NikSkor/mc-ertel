@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
   <%- include('./templates/head'); %>
@@ -17,13 +17,14 @@
           <form class="info__form" method="POST" action="/userEdit">
             <div class="info__input-block info__input-block_edit">
               <div class="info__line">
+                <input readonly class="visually-hidden" type="text" name="id" id="info__id" value=<%=user.id %>>
                 <label class="info__label">
                   <span>Имя</span>
-                  <input class="info__input" type="text" name="name" id="inputName" placeholder="Введите имя" value=<%= user.name %>>
+                  <input class="info__input" type="text" name="name" id="inputName" placeholder="Введите имя" value="<%= user.name %>">
                 </label>
                 <label class="info__label">
                   <span>Email</span>
-                  <input class="info__input" type="email" name="mail" id="inputMail" placeholder="Введите email" value=<%= user.mail %>>
+                  <input class="info__input" type="email" name="mail" id="inputMail" placeholder="Введите email" value="<%= user.mail %>">
                 </label>
               </div>
               <div class="info__line">

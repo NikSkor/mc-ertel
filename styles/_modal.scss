@@ -5,25 +5,58 @@
     flex-direction: column;
     align-items: center;
     gap: 55px;
+
+    @include laptop {
+      gap: 45px;
+    }
+  
+    @include tablet {
+      gap: 35px;
+    }
+  
+    @include mobile {
+      gap: 25px;
+    }
   }
 
   &__title {
     font-weight: 600;
     font-size: 32px;
+
+    @include laptop {
+      font-size: 28px;
+    }
+  
+    @include tablet {
+      font-size: 22px;
+    }
+  
+    @include mobile {
+      font-size: 20px;
+    }
   }
 
   &__link {
     background-color: $gray;
     display: block;
     text-align: center;
-    padding: 20px 15px;
+    padding: 20px 35px;
     border-radius: 20px;
-    width: 300px;
     align-self: center;
     font-weight: 600;
     border: 1px transparent solid;
     transition: all 0.4s ease-in-out;
     cursor: pointer;
+
+    @include laptop {
+      border-radius: 10px;
+      padding: 15px 25px;
+    }
+
+    @include tablet {
+      border-radius: 10px;
+      padding: 10px 20px;
+    }
 
     &:hover {
       background-color: $light-gray;

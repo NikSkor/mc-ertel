@@ -57,20 +57,3 @@ if (backBtn !== null) {
     });
   });
 }
-  
-// if (editBtns !== null) {
-//   editBtns.forEach((btn) => {
-//     btn.addEventListener('click', (e) => {
-//       e.preventDefault();
-//     });
-//   });
-// }
-  
-
-// fs.readFile(`dataBase/${dataBaseName}.json`, 'utf8', (err, data) => {
-//   let dataBaseFile = {};
-//   dataBaseFile = JSON.parse(data);
-
-//   listBlock.append(listRender.renderList(dataBaseName));
-
-// });

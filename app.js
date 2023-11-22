@@ -10,70 +10,59 @@ const port = 3030;
 
 fileHandler.createDataFile(dataBaseName);
 
-app.set('view engine', 'ejs');
-app.set('views', './pages');
-// app.use(express.static('public'));
-app.use(express.static(path.join(__dirname + '/public')));
+app.set('view engine', 'ejs'); //подключаем отображение шаблонов
+app.set('views', './pages'); // папка с шаблонами страниц
+app.use(express.static(path.join(__dirname + '/public'))); // делаем папку доступной
 
-app.use(bodyParser.json());
+app.use(bodyParser.json()); //парсер html
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.post('/user_input', function (req, res, next) {
-  // Объект req.body содержит данные из переданной формы
-  console.log(req.body);
+app.post('/user_input', function (req, res, next) { // получаем данные из формы ввода данных
+  
   fileHandler.editDataFile(dataBaseName, req.body);
-  res.redirect('/info');
+  res.redirect('/info'); 
 });
 
 
 
-app.get('/user/:id', function(req, res) {
-  const id = req.params.id;
-  // console.log('id: ', id);
-
-  // let userData = fileHandler.searchInFile(id, dataBaseName);
+app.get('/user/:id', function(req, res) { // получаем id пользователя
   let dataObj = {};
   let resultObj = {};
-  fs.readFile(`dataBase/${dataBaseName}.json`, 'utf8', (err, data) => {
+  fs.readFile(`dataBase/${dataBaseName}.json`, 'utf8', (err, data) => { // находим в файле данных пользователя по id
     dataObj = JSON.parse(data);
-
     dataObj.users.forEach((user) => {
-      if (user.id === id) {
+      if (user.id === req.params.id) {
         resultObj = { id: user.id, ...user.content };
       }
     });
-    console.log('resultObj: ', resultObj);
-    res.render('editPage', { user: resultObj });
-  });
 
-  app.post('/userEdit', function (req, res, next) {
-    // Объект req.body содержит данные из переданной формы
-    console.log(req.body);
-    fileHandler.updateDataFile(id, dataBaseName, req.body);
+    res.render('editPage', { user: resultObj }); // рендерим страницу с данными пользователя
+
+    app.post('/userEdit', function (req, res, next) { // получаем данные из формы редактирования
+      fileHandler.updateDataFile(req.body.id, dataBaseName, req.body); // редактируем данные в файле данных
       res.redirect('/info');
+    });
   });
 });
 
-app.get('/', (req, res) => {
+
+
+app.get('/', (req, res) => { // загрузка главной страницы
   fileHandler.createDataFile(dataBaseName);
 
   fs.readFile(`dataBase/${dataBaseName}.json`, 'utf8', (err, data) => {
     let dataBaseFile = {};
     dataBaseFile = JSON.parse(data);
 
-    res.render('index', { data: dataBaseFile });
+    res.render('index', { data: dataBaseFile }); //отображаем список пользователей на странице
   });
 });
 
 
-app.get('/info', (req, res) => {
+app.get('/info', (req, res) => { // загрузка вспомогательной страницы
   res.render('modalPage');
 });
 
-// app.get('/edit', (req, res) => {
-//   res.render('editPage');
-// });
-
-app.listen(port, () => {
+app.listen(port, () => { // статус сервера
   console.log(`Сервер запущен на http://localhost:${port}`);
 });

@@ -2,7 +2,7 @@ const fs = require('fs');
 const generateRandomId = require('./utils/generateRandomId');
 const formatFate = require('./utils/formatDate');
 
-exports.createDataFile = (name) => {
+exports.createDataFile = (name) => { // создаем файл данных если его нет
   fs.access(`dataBase/${name}.json`, (err) => {
     if (err) {
       console.log('Файл данных не найден');
@@ -13,7 +13,7 @@ exports.createDataFile = (name) => {
   });
 };
 
-exports.editDataFile = (name, data) => {
+exports.editDataFile = (name, data) => { // добавляем в файл данных пользователей
   this.createDataFile(name);
   let dataObj = {};
   let nowDate = new Date();
@@ -35,7 +35,7 @@ exports.editDataFile = (name, data) => {
   });
 }
 
-exports.updateDataFile = (id, name, userData) => {
+exports.updateDataFile = (id, name, userData) => { //обновляем пользователя в файле данных
   this.createDataFile(name);
   fs.readFile(`dataBase/${name}.json`, 'utf8', (err, dataOld) => {
     let dataObj = JSON.parse(dataOld);
@@ -54,23 +54,4 @@ exports.updateDataFile = (id, name, userData) => {
 
     fs.writeFile(`dataBase/${name}.json`, JSON.stringify(dataObj), () => {});
   });
-}
-
-exports.searchInFile = (id, name) => {
-  let dataObj = {};
-  let resultObj = {};
-  fs.readFile(`dataBase/${name}.json`, 'utf8', (err, data) => {
-    dataObj = JSON.parse(data);
-
-    dataObj.users.forEach(user => {
-      if(user.id === id) {
-        resultObj = {id: user.id, ...user.content}
-      }
-    });
-    
-  });
-
-  console.log('resultObj: ', resultObj);
-
-  return resultObj;
 }

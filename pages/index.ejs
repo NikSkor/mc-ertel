@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <%- include('./templates/head'); %>
 </head>
@@ -31,7 +31,6 @@
                 <button class="info__btn info__btn_back">Назад</button>
               </div>
             </div>
-            
           </form>
         </div>
       </div>
@@ -40,28 +39,15 @@
       <div class="container roster__container">
         <h2 class="roster__title">Перечень пользователей</h2>
         <ul class="roster__list">
-          <!-- <li class="roster__item">
-            <div class="roster__text"><b>Имя</b></div>
-            <div class="roster__text"><b>Почта</b></div>
-            <div class="roster__text"><b>Дата создания</b></div>
-            <div class="roster__text"><b>Дата последнего изменения</b></div>
-            <div class="roster__text"><b>Редактирование</b></div>
-          </li> -->
           <% if(data.users.length === 0) { %>
             <p class="roster__message">Данных нет</p>  
           <%} else {%>
           <% data.users.forEach((user)=> { %>
             <li class="roster__item">
-              <!-- <div class="roster__user-block">
-                <div class="roster__line"> -->
-                  <div class="roster__text roster__text_name"><%= user.content.name %></div>
-                  <div class="roster__text roster__text_mail"><%= user.content.mail %></div>
-                <!-- </div>
-                <div class="roster__line"> -->
-                  <div class="roster__text roster__text_date">Создано: <%= user.content.date %></div>
-                  <div class="roster__text roster__text_edit">Изменено: <%= user.content.editDate %></div>
-                <!-- </div>
-              </div> -->
+              <div class="roster__text roster__text_name"><%= user.content.name %></div>
+              <div class="roster__text roster__text_mail"><%= user.content.mail %></div>
+              <div class="roster__text roster__text_date">Создано: <%= user.content.date %></div>
+              <div class="roster__text roster__text_edit">Изменено: <%= user.content.editDate %></div>
               <div class="roster__text roster__text_btn">
                 <a href="/user/<%= user.id %>"  class="roster__edit">Ред.</a>
               </div>

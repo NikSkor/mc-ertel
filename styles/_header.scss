@@ -2,10 +2,26 @@
   &__container {
     background-color: $light-gray;
     margin-bottom: 30px;
+
+  @include tablet {
+      margin-bottom: 15px;
+    }
   }
 
   &__title {
     text-align: center;
     font-size: 46px;
+
+    @include laptop {
+      font-size: 40px;
+    }
+  
+    @include tablet {
+      font-size: 26px;
+    }
+  
+    @include mobile {
+      font-size: 20px;
+    }
   }
 }
