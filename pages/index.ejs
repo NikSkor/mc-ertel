@@ -39,26 +39,36 @@
     <section class="roster">
       <div class="container roster__container">
         <h2 class="roster__title">Перечень пользователей</h2>
-        <table class="roster__list">
-          <tr class="roster__item">
-              <th class="roster__text"><b>Имя</b></th>
-              <th class="roster__text"><b>Почта</b></th>
-              <th class="roster__text roster__text_mobile"><b>Дата создания</b></th>
-              <th class="roster__text roster__text_mobile"><b>Дата последнего изменения</b></th>
-              <th class="roster__text"><b>Редактирование</b></th>
-            </tr>
+        <ul class="roster__list">
+          <!-- <li class="roster__item">
+            <div class="roster__text"><b>Имя</b></div>
+            <div class="roster__text"><b>Почта</b></div>
+            <div class="roster__text"><b>Дата создания</b></div>
+            <div class="roster__text"><b>Дата последнего изменения</b></div>
+            <div class="roster__text"><b>Редактирование</b></div>
+          </li> -->
+          <% if(data.users.length === 0) { %>
+            <p class="roster__message">Данных нет</p>  
+          <%} else {%>
           <% data.users.forEach((user)=> { %>
-            <tr class="roster__item">
-              <td class="roster__text"><%= user.content.name %></td>
-              <td class="roster__text"><%= user.content.mail %></td>
-              <td class="roster__text roster__text_mobile"><%= user.content.date %></td>
-              <td class="roster__text roster__text_mobile"><%= user.content.editDate %></td>
-              <td class="roster__text">
+            <li class="roster__item">
+              <!-- <div class="roster__user-block">
+                <div class="roster__line"> -->
+                  <div class="roster__text roster__text_name"><%= user.content.name %></div>
+                  <div class="roster__text roster__text_mail"><%= user.content.mail %></div>
+                <!-- </div>
+                <div class="roster__line"> -->
+                  <div class="roster__text roster__text_date">Создано: <%= user.content.date %></div>
+                  <div class="roster__text roster__text_edit">Изменено: <%= user.content.editDate %></div>
+                <!-- </div>
+              </div> -->
+              <div class="roster__text roster__text_btn">
                 <a href="/user/<%= user.id %>"  class="roster__edit">Ред.</a>
-              </td>
-            </tr>
+              </div>
+            </li>
           <% }); %>
-        </table>
+          <% }; %>
+        </ul>
       </div>
     </section>
   </main>

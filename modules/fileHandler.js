@@ -2,7 +2,6 @@ const fs = require('fs');
 const generateRandomId = require('./utils/generateRandomId');
 const formatFate = require('./utils/formatDate');
 
-
 exports.createDataFile = (name) => {
   fs.access(`dataBase/${name}.json`, (err) => {
     if (err) {
@@ -14,15 +13,6 @@ exports.createDataFile = (name) => {
   });
 };
 
-// exports.getDataFile = (name) => {
-//   let dataObj = {};
-//   fs.readFile(`dataBase/${name}.json`, 'utf8', (err, data) => {
-//     dataObj = JSON.parse(data);
-//   });
-
-//   return dataObj;
-// }
-
 exports.editDataFile = (name, data) => {
   this.createDataFile(name);
   let dataObj = {};
@@ -30,9 +20,8 @@ exports.editDataFile = (name, data) => {
   dataObj.id = generateRandomId.generateRandomId();
   dataObj.content = {...data};
   dataObj.content.date = formatFate.formatDate(nowDate);
-  // dataObj.content.date = nowDate;
 
-  dataObj.content.editDate = 'нет';
+  dataObj.content.editDate = 'нет изменений';
 
   let dataOldObj = {};
 
